@@ -7,4 +7,4 @@ test:
   override:
   - cd src && make CXXFLAGS="-Wall -O2 -g -Werror -Wno-deprecated-register -pedantic -Wno-sign-compare" -j2 && cd ../regression && make test
   post:
-  - cp ./cbmc/cbmc $CIRCLE_ARTIFACTS/cbmc
+  - cp ~/cbmc/src/cbmc/cbmc $CIRCLE_ARTIFACTS/cbmc
