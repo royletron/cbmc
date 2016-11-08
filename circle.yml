@@ -3,7 +3,6 @@ dependencies:
     - sudo apt-get update; sudo apt-get install g++ gcc flex bison make git libz-dev libwww-perl patch libzip-dev
     - chmod a+x regression/failed-tests-printer.pl
     - cd src && make minisat2-download
-
 test:
-	override:
-		- make CXXFLAGS="-Wall -O2 -g -Werror -Wno-deprecated-register -pedantic -Wno-sign-compare" -j2 && cd ../regression && make test
+  override:
+  - make CXXFLAGS="-Wall -O2 -g -Werror -Wno-deprecated-register -pedantic -Wno-sign-compare" -j2 && cd ../regression && make test
