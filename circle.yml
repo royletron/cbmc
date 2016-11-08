@@ -11,6 +11,7 @@ test:
 
 deployment:
   prod:
+    branch: /.*/
     commands:
       - aws s3 cp ~/cbmc/src/cbmc/cbmc s3://cbmc.diffblue.com/$CIRCLE_BRANCH/$CIRCLE_SHA1/cbmc
       - aws s3 cp ~/cbmc/src/cbmc/cbmc s3://cbmc.diffblue.com/$CIRCLE_BRANCH/latest/cbmc
