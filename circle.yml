@@ -7,9 +7,8 @@ test:
   override:
   - cd src && make CXXFLAGS="-Wall -O2 -g -Werror -Wno-deprecated-register -pedantic -Wno-sign-compare" -j2 && cd ../regression && make test
   post:
-  - cd ~/cbmc/src
-  - make ministat2-download
-  - make libzip-download zlib-download
-  - make libzip-build
-  - make
+  - cd ~/cbmc/src && make ministat2-download
+  - cd ~/cbmc/src && make libzip-download zlib-download
+  - cd ~/cbmc/src && make libzip-build
+  - cd ~/cbmc/src && make
   - cp ~/cbmc/src/cbmc/cbmc $CIRCLE_ARTIFACTS/cbmc
