@@ -17,6 +17,6 @@ deployment:
     branch: /.*/
     commands:
       - cd src && make clean
-      - docker run -v ~/cbmc:/cbmc -t docker/cbmc-builder
+      - docker run -v ~/cbmc:/cbmc -t diffblue/cbmc-builder
       - aws s3 cp ~/cbmc/src/cbmc/cbmc s3://cbmc.diffblue.com/$CIRCLE_BRANCH/$CIRCLE_SHA1/cbmc
       - aws s3 cp ~/cbmc/src/cbmc/cbmc s3://cbmc.diffblue.com/$CIRCLE_BRANCH/latest/cbmc
