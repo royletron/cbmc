@@ -1,3 +1,6 @@
+machine:
+  services:
+    - docker
 dependencies:
   pre:
     - sudo apt-get update; sudo apt-get install g++ gcc flex bison make git libz-dev libwww-perl patch libzip-dev
@@ -13,5 +16,7 @@ deployment:
   prod:
     branch: /.*/
     commands:
+      - cd src && make clean
+      - docker run -v ~/cbmc:/cbmc -t cbmc-builder
       - aws s3 cp ~/cbmc/src/cbmc/cbmc s3://cbmc.diffblue.com/$CIRCLE_BRANCH/$CIRCLE_SHA1/cbmc
       - aws s3 cp ~/cbmc/src/cbmc/cbmc s3://cbmc.diffblue.com/$CIRCLE_BRANCH/latest/cbmc
